@@ -49,15 +49,12 @@ def do_deploy(archive_path):
         return True
 
 
-@runs_once
 def deploy():
     """ Calls do_pack() and do_deploy() methods
     """
 
-    try:
-        pack_dir = execute(do_pack)
-    except:
+    pack_dir = do_pack()
+    if pack_dir is None:
         return False
 
-    deploy_ret = execute(do_deploy(pack_dir))
-    return deploy_ret
+    return do_deploy(pack_dir)
