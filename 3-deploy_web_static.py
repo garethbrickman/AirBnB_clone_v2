@@ -49,13 +49,15 @@ def do_deploy(archive_path):
         return True
 
 
+@runs_once
 def deploy():
     """ Calls do_pack() and do_deploy() methods
     """
+
     try:
-        pack_dir = decorators.runs_once(execute(do_pack))
+        pack_dir = execute(do_pack)
     except:
         return False
 
-    deploy_ret = decorators.runs_once(execute(do_deploy(pack_dir)))
+    deploy_ret = execute(do_deploy(pack_dir))
     return deploy_ret
