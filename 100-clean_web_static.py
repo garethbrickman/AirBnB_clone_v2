@@ -12,7 +12,7 @@ def do_clean(number=0):
     """
 
     with cd("/data/web_static/releases"):
-        run("rm `ls -td *.tgz | awk 'NR>{}'`".format(number))
+        run("rm -r `ls -td web_static_* | awk 'NR>{}'`".format(number))
 
     with lcd("/versions"):
         local("rm `ls -td *.tgz | awk 'NR>{}'`".format(number))
