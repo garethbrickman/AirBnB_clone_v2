@@ -49,7 +49,7 @@ def do_deploy(archive_path):
         return True
 
 
-@decorators.runs_once
+# @decorators.runs_once
 def deploy():
     """ Calls do_pack() and do_deploy() methods
     """
