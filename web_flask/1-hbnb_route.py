@@ -13,6 +13,7 @@ def display_hello():
     """
     return 'Hello HBNB!'
 
+
 @app.route('/hbnb')
 def display_hbnb():
     """ Returns string when specified app.route is queried

@@ -6,11 +6,13 @@ from flask import Flask, escape
 app = Flask(__name__)
 app.url_map.strict_slashes = False
 
+
 @app.route('/number/<int:n>')
 def display_int(n):
     """ Returns string confirming if n is int when app.route queried,
     """
     return '%d is a number' % n
+
 
 @app.route('/python/', defaults={"text": "is cool"})
 @app.route('/python/<text>')
@@ -20,17 +22,20 @@ def display_python(text):
     """
     return 'Python %s' % escape(text.replace("_", " "))
 
+
 @app.route('/c/<text>')
 def display_c(text):
     """ Returns string with text variable when app.route queried
     """
     return 'C %s' % escape(text.replace("_", " "))
 
+
 @app.route('/hbnb')
 def display_hbnb():
     """ Returns string when specified app.route queried
     """
     return 'HBNB'
+
 
 @app.route('/')
 def display_hello():

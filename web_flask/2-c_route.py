@@ -13,11 +13,13 @@ def display_c(text):
     """
     return 'C %s' % escape(text.replace("_", " "))
 
+
 @app.route('/')
 def display_hello():
     """ Returns string when specified app.route is queried
     """
     return 'Hello HBNB!'
+
 
 @app.route('/hbnb')
 def display_hbnb():
