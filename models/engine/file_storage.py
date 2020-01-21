@@ -28,6 +28,12 @@ class FileStorage:
     __file_path = "file.json"
     __objects = {}
 
+
+    def close(self):
+        """calls reload method to deserialize JSON file to objects
+        """
+    self.reload()
+
     def delete(self, obj=None):
         """deletes obj from __objects if it’s inside
         """
