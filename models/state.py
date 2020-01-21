@@ -4,14 +4,6 @@ from models.base_model import BaseModel
 from models.base_model import Base
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
-"""
-# TO DO:
-# cities getter
-#for FileStorage: getter attribute cities that returns
-#the list of City instances with state_id equals to the
-#current State.id =>
-#It will be the FileStorage relationship between State and City
-"""
 
 
 class State(BaseModel, Base):
