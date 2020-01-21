@@ -28,7 +28,6 @@ class FileStorage:
     __file_path = "file.json"
     __objects = {}
 
-
     def close(self):
         """calls reload method to deserialize JSON file to objects
         """
