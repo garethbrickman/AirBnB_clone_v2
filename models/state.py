@@ -2,6 +2,7 @@
 """This is the state class"""
 from models.base_model import BaseModel
 from models.base_model import Base
+from models.city import City
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
 
@@ -22,9 +23,8 @@ class State(BaseModel, Base):
         """ Getter
         """
         r_v = []
-        objs = storage.all()
-        for key in objs.keys():
-            if key.split(".")[0] == "City":
-                if key.split(".")[1] == self.id:
-                    r_v.append(objs[key])
+        objs = models.storage.all(City)
+        for key in objs.values():
+            if self.id == key.state_id:
+                    r_v.append(key)
         return (r_v)
