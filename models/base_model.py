@@ -10,6 +10,7 @@ Base = declarative_base()
 """Makes this base for any models extending the class
 """
 
+
 class BaseModel:
     """This class will defines all common attributes/methods
     for other classes

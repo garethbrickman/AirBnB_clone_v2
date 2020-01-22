@@ -40,11 +40,11 @@ class DBStorage:
         engine: links to MySQL database using environment variables
         """
         DBStorage.__engine = create_engine('mysql+mysqldb://{}:{}@{}/{}'
-                                      .format(getenv('HBNB_MYSQL_USER'),
-                                              getenv('HBNB_MYSQL_PWD'),
-                                              getenv('HBNB_MYSQL_HOST'),
-                                              getenv('HBNB_MYSQL_DB')),
-                                      pool_pre_ping=True)
+                                           .format(getenv('HBNB_MYSQL_USER'),
+                                                   getenv('HBNB_MYSQL_PWD'),
+                                                   getenv('HBNB_MYSQL_HOST'),
+                                                   getenv('HBNB_MYSQL_DB')),
+                                           pool_pre_ping=True)
         self.reload()
 
         if getenv('HBNB_ENV') == "test" and 'test' in os.environ:
@@ -86,7 +86,8 @@ class DBStorage:
         from the engine (self.__engine)
         """
         Base.metadata.create_all(DBStorage.__engine)
-        session_make = sessionmaker(bind=DBStorage.__engine, expire_on_commit=False)
+        session_make = sessionmaker(bind=DBStorage.__engine,
+                                    expire_on_commit=False)
         session_scoped = scoped_session(session_make)
         DBStorage.__session = session_scoped()
 
