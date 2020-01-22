@@ -7,7 +7,8 @@ from sqlalchemy import Column, Integer, String, DateTime
 from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
-
+"""Makes this base for any models extending the class
+"""
 
 class BaseModel:
     """This class will defines all common attributes/methods
@@ -69,10 +70,10 @@ class BaseModel:
         my_dict["__class__"] = str(type(self).__name__)
         my_dict["created_at"] = self.created_at.isoformat()
         my_dict["updated_at"] = self.updated_at.isoformat()
-        if "_sa_instance_state" in my_dict.keys():
-            del my_dict["_sa_instance_state"]
+        if '_sa_instance_state' in my_dict.keys():
+            del my_dict['_sa_instance_state']
         return my_dict
 
     def delete(self):
         """ Delete the current instance from the storage (models.storage) """
-        models.storage.delete()
+        models.storage.delete(self)
